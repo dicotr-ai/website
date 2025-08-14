@@ -1,103 +1,136 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import type { NextPage } from 'next';
+import { useState } from 'react';
+
+// Define the types for the props of the components
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+}
+
+// Navigation Link Component
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
+  <li>
+    <a href={href} className="text-base text-white opacity-90 hover:opacity-100 hover:underline transition-opacity">
+      {children}
+    </a>
+  </li>
+);
+
+
+
+
+const Home: NextPage = () => {
+    const [activeTab, setActiveTab] = useState('All');
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="bg-white text-[#253d32] font-sans overflow-x-hidden">
+      {/* Hero Section */}
+      <section className="relative h-[1024px] text-white flex flex-col overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#395c4d] to-[#132d1f] -z-20"></div>
+        <img src="/hero1.svg" alt="Background" className="absolute top-0 left-0 w-full h-full object-cover" /> 
+        {/* Background here */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <header className="absolute top-0 left-0 w-full py-10 z-10">
+          <div className="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" className="flex items-center gap-2">
+              <img src="logo.svg" alt="Logo" className="w-8 h-8" /> 
+              {/* logo here */}
+              <span className="text-2xl font-semibold">DiCoTr</span>
+            </a>
+            <nav className="hidden lg:block">
+              <ul className="flex gap-12">
+                <NavLink href="#services">Features</NavLink>
+                <NavLink href="#">Pricing</NavLink>
+                <NavLink href="#">About</NavLink>
+              </ul>
+            </nav>
+            <a href="#" className="hidden lg:inline-block text-base font-medium px-7 py-4 bg-white/10 border border-white/40 rounded-full hover:bg-white/20 transition-colors">
+              Contact Us
+            </a>
+            <button className="lg:hidden bg-none border-none text-white text-3xl cursor-pointer">
+              ☰
+            </button>
+          </div>
+        </header>
+
+       <div className="flex-grow flex items-center justify-center text-center relative">
+  <div className="max-w-8xl">
+    {/* Heading with SVGs before and after */}
+    <div className="flex items-center justify-center gap-4 mb-[-10px]">
+      {/* Left SVG */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" className="w-16 h-4 text-[#fff]">
+        <path d="M0 5 L100 5" fill="none" stroke="currentColor" strokeWidth="2" />
+      </svg>
+
+      <p className="text-4xl font-medium opacity-80">The Best</p>
+
+      {/* Right SVG */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" className="w-16 h-4 text-[#fff]">
+        <path d="M0 5 L100 5" fill="none" stroke="currentColor" strokeWidth="2" />
+      </svg>
+    </div>
+
+    {/* Main Heading */}
+    <h1
+      className="text-8xl font-semibold leading-tight relative inline-block"
+      style={{ fontFamily: 'Rubik, sans-serif' }}
+    >
+      Digital{" "}
+      <span className="relative">
+        Marketing
+        {/* Squiggly underline */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 400 30"
+          className="absolute left-0 bottom-[-10px] w-full h-6 text-[#a3b938]"
+        >
+          <path
+            d="M0 20 Q25 10 50 20 T100 20 T150 20 T200 20 T250 20 T300 20 T350 20 T400 20 "
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+          />
+        </svg>
+      </span>
+    </h1>
+
+    {/* Description */}
+    <p className="text-xl leading-loose opacity-60 max-w-2xl mx-auto mt-7">
+     Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer
+    </p>
+
+    {/* Button */}
+    <div className="mt-16 relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-16 bg-[#c2e463] blur-2xl opacity-20"></div>
+      <a
+        href="#"
+        className="relative z-10 inline-block px-8 py-4 bg-[#a3b938] text-black rounded-full font-semibold text-lg hover:bg-[#b3c948] transition-colors"
+      >
+        Explore More
+      </a>
+    </div>
+  </div>
+</div>
+
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-12 bg-[#f6fbf9]">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-around items-center flex-wrap gap-10">
+            <img src="slack.png" alt="Partner 1" className="h-9 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="amazon.png" alt="Partner 2" className="h-9 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="logi.svg" alt="Partner 3" className="h-9 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="google.svg" alt="Partner 4" className="h-9 opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="facebook.svg" alt="Partner 5" className="h-9 opacity-70 hover:opacity-100 transition-opacity" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
     </div>
   );
-}
+};
+
+export default Home;
