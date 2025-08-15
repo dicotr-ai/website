@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { BsMegaphone, BsPencilSquare, BsSearch, BsCalendarWeek, BsPeople, BsClipboardData, BsLightbulb, BsFileEarmarkBarGraph, BsShare } from 'react-icons/bs';
-import AboutUs from '../components/pages/aboutus';
+import AboutUs from '@/app/components/pages/aboutUs';
 
 const ServiceItem = ({ icon, title, description }: { icon: React.ReactNode, title: string, description?: string }) => (
     <div className="flex flex-col items-center text-center p-4">
@@ -30,6 +30,7 @@ const page = () => {
             </header>
 
             {/* Hero section */}
+            <AboutUs/>
             {/* Who We Are Section */}
             <section className="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
                  <div>
