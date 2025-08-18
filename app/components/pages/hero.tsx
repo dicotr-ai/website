@@ -1,4 +1,4 @@
-const AboutUs = () => {
+const Hero = () => {
     return(
         <>
             <main className="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-8 items-center">
@@ -22,4 +22,4 @@ const AboutUs = () => {
     );
 }
 
-export default AboutUs;
+export default Hero;
