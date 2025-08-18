@@ -2,6 +2,8 @@
 
 import type { NextPage } from 'next';
 import { useState } from 'react';
+import Footer from '@/app/components/pages/footer';
+import Header from '@/app/components/pages/header';
 
 // Define the types for the props of the components
 interface NavLinkProps {
@@ -21,15 +23,6 @@ interface ServiceCardProps {
   title: string;
   description: string;
 }
-
-// Navigation Link Component
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
-  <li>
-    <a href={href} className="text-base text-white opacity-90 hover:opacity-100 hover:underline transition-opacity">
-      {children}
-    </a>
-  </li>
-);
 
 // Service Card Component
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) => (
@@ -76,28 +69,7 @@ const Home: NextPage = () => {
         <img src="/hero1.svg" alt="Background" className="absolute top-0 left-0 w-full h-full object-cover" /> 
         {/* Background here */}
 
-        <header className="absolute top-0 left-0 w-full py-10 z-10">
-          <div className="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" className="flex items-center gap-2">
-              <img src="logo.svg" alt="Logo" className="w-8 h-8" /> 
-              {/* logo here */}
-              <span className="text-2xl font-semibold">DiCoTr</span>
-            </a>
-            <nav className="hidden lg:block">
-              <ul className="flex gap-12">
-                <NavLink href="#services">Features</NavLink>
-                <NavLink href="#">Pricing</NavLink>
-                <NavLink href="#">About</NavLink>
-              </ul>
-            </nav>
-            <a href="#" className="hidden lg:inline-block text-base font-medium px-7 py-4 bg-white/10 border border-white/40 rounded-full hover:bg-white/20 transition-colors">
-              Contact Us
-            </a>
-            <button className="lg:hidden bg-none border-none text-white text-3xl cursor-pointer">
-              ☰
-            </button>
-          </div>
-        </header>
+        <Header/>
 
        <div className="flex-grow flex items-center justify-center text-center relative">
   <div className="max-w-8xl">
@@ -251,6 +223,8 @@ const Home: NextPage = () => {
               </a>
         </div>
     </section>
+
+    <Footer/>
 
     </div>
   );
