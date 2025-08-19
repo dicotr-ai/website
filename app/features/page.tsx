@@ -1,15 +1,9 @@
 import type { NextPage } from 'next';
-import { FiClock, FiUsers, FiCheckSquare } from 'react-icons/fi';
 import { 
   FaFacebookF, 
   FaTwitter, 
-  FaInstagram, 
-  FaLightbulb, 
-  FaPencilRuler, 
-  FaBullhorn, 
-  FaChartLine 
+  FaInstagram
 } from 'react-icons/fa';
-
 
 /* ===============================
    Reusable Button Component
@@ -40,20 +34,17 @@ const Button = ({
 ================================ */
 const Header = () => (
   <header className="container mx-auto flex justify-between items-center py-4 px-6 bg-white">
-    {/* Logo */}
     <div className="flex items-center space-x-2">
       <img src="/Category.svg" alt="WeThink Logo" className="h-8 w-auto" />
       <div className="text-2xl font-bold text-gray-800">WeThink</div>
     </div>
 
-    {/* Navigation */}
     <nav className="hidden md:flex items-center space-x-8">
       <a href="#" className="text-gray-600 hover:text-green-500">Home</a>
       <a href="#" className="text-gray-600 hover:text-green-500">About</a>
       <a href="#" className="text-gray-600 hover:text-green-500">Services</a>
     </nav>
 
-    {/* CTA Button */}
     <Button className="rounded-full border-black !text-black px-6 py-2">
       Contact Us
     </Button>
@@ -66,7 +57,6 @@ const Header = () => (
 ================================ */
 const Hero = () => (
   <section className="container mx-auto flex flex-col md:flex-row items-center py-12 md:py-24 px-6">
-    {/* Left Content */}
     <div className="md:w-1/2 mb-10 md:mb-0">
       <h1 className="text-5xl md:text-6xl font-bold text-gray-800 leading-tight mb-4">
         Features that<br />
@@ -82,13 +72,8 @@ const Hero = () => (
       </Button>
     </div>
 
-    {/* Right Image */}
     <div className="md:w-1/2 flex justify-center">
-      <img
-        src="Image.svg"
-        alt="Woman with digital assets"
-        className="w-full max-w-md"
-      />
+      <img src="Image.svg" alt="Woman with digital assets" className="w-full max-w-md" />
     </div>
   </section>
 );
@@ -108,7 +93,9 @@ const FeatureItem = ({
   text: string, 
   reverse?: boolean 
 }) => (
-  <div className={`flex flex-col md:flex-row items-center justify-between my-12 ${reverse ? 'md:flex-row-reverse' : ''}`}>
+  <div className={`flex flex-col md:flex-row items-center justify-between my-16 gap-12 ${reverse ? 'md:flex-row-reverse' : ''}`}>
+    
+    {/* Icon + Text */}
     <div className="md:w-2/5 text-center md:text-left">
       <div className="inline-flex items-center justify-center w-16 h-16 mb-4 text-purple-500 bg-purple-100 rounded-full">
         {icon}
@@ -119,33 +106,38 @@ const FeatureItem = ({
         See More &rarr;
       </a>
     </div>
+
+    {/* Illustration placeholder (can be replaced with actual images later) */}
+    <div className="md:w-2/5 flex justify-center">
+      <img src="https://via.placeholder.com/300x200" alt={title} className="rounded-xl shadow-md" />
+    </div>
   </div>
 );
 
 
 /* ===============================
-   Content Section Component
+   Content Section (Alternating)
 ================================ */
 const ContentSection = () => {
   const features = [
     {
-      icon: <FaLightbulb size={28} />,
+      icon: <img src="Group 542.svg" alt="Content Strategy" className="w-8 h-8" />,
       title: "Content Strategy",
       text: "We create a custom strategy for your brand across every platform using data-driven industry insights. Every visual touchpoint can be an opportunity for engagement and growth."
     },
     {
-      icon: <FaPencilRuler size={28} />,
+      icon: <img src="Group 555.svg" alt="Content Development" className="w-8 h-8" />,
       title: "Content Development",
       text: "We create concepts driving the story forward. Creativity meets strategy as we develop concepts you'll be proud to share. Every detail is crafted with purpose and aligned with your goals."
     },
     {
-      icon: <FaBullhorn size={28} />,
+      icon: <img src="Group 556.svg" alt="Content Creation" className="w-8 h-8" />,
       title: "Content Creation",
       text: "We create a custom strategy for your brand across every platform using a data-driven industry insights. Every visual touchpoint can be an opportunity for engagement and growth."
     },
     {
-      icon: <FaChartLine size={28} />,
-      title: "Content Strategy",
+      icon: <img src="Group 554.svg" alt="Content Storytelling" className="w-8 h-8" />,
+      title: "Content Storytelling",
       text: "We craft a compelling story for your brand to drive results. Our content is tailored to your target audience to maximize engagement and build brand loyalty."
     }
   ];
@@ -153,7 +145,11 @@ const ContentSection = () => {
   return (
     <section className="container mx-auto py-16 px-6">
       {features.map((feature, index) => (
-        <FeatureItem key={index} {...feature} />
+        <FeatureItem 
+          key={index} 
+          {...feature} 
+          reverse={index % 2 !== 0}   // 👈 Alternates layout
+        />
       ))}
     </section>
   );
@@ -165,26 +161,17 @@ const ContentSection = () => {
 ================================ */
 const SocialSection = () => (
   <section className="container mx-auto flex flex-col md:flex-row items-center py-16 px-6">
-    {/* Left Content */}
     <div className="md:w-1/2 mb-10 md:mb-0 md:pr-12">
-      <h2 className="text-4xl font-bold text-gray-800 mb-4">
-        Social Media Amplification
+      <h2 className="text-4xl font-bold text-gray-800 mb-4 ml-6">
+        Social Media <br /> Amplification
       </h2>
-      <p className="text-gray-600">
-        Leverage our network to skyrocket your impact. Our strategic partnerships 
-        and promotional expertise ensure your message reaches the right audience 
-        at the right time. We create shareable content, targeted campaigns, and 
-        data-driven strategies to expand your reach.
+      <p className="text-gray-600 ml-6">
+        Leverage our industry influencer network to increase content visibility and drive audience engagement. We help you grow where it matters—organically and strategically.
       </p>
     </div>
 
-    {/* Right Image */}
     <div className="md:w-1/2 flex justify-center">
-      <img 
-        src="../OBJECTS.svg" 
-        alt="Team working on social media campaign" 
-        className="w-full max-w-lg" 
-      />
+      <img src="../OBJECTS.svg" alt="Team working on social media campaign" className="w-full max-w-lg" />
     </div>
   </section>
 );
@@ -193,48 +180,32 @@ const SocialSection = () => (
 /* ===============================
    Need Help Section
 ================================ */
-// "Need Help" Section
 const NeedHelpSection = () => (
   <section className="bg-gray-50 py-20 px-6">
     <div className="container mx-auto text-center">
-      {/* Heading */}
-      <h2 className="text-3xl font-bold text-gray-800 mb-4">
-        Need Help with Your Website?
+      <h2 className="text-3xl font-bold text-gray-800 mb-4 text-left ml-6">
+        Need Help With Your <br /> Website ?
       </h2>
-      <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-        Leverage our industry influencer network to increase 
+      <p className="text-gray-600 max-w-2xl mx-auto mb-12 text-left ml-6">
+        Leverage our industry influencer network to increase <br />
         content visibility and drive audience engagement.
       </p>
 
-      {/* Features Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        
-        {/* Feature 1 */}
         <div className="flex flex-col items-center">
-          <FiClock className="text-green-500 mb-4" size={32} />
-          <h4 className="font-semibold text-gray-800 mb-2">
-            Update your website content
-          </h4>
+          <img src="Delivery Time.svg" alt="Update Content" className="w-12 h-12 mb-4" />
+          <h4 className="font-semibold text-gray-800 mb-2">Update your website content</h4>
         </div>
-
-        {/* Feature 2 */}
         <div className="flex flex-col items-center">
-          <span className="text-green-500 mb-4 text-3xl">⚠️</span>
-          <h4 className="font-semibold text-gray-800 mb-2">
-            Improve your user experience
-          </h4>
+          <img src="Navigation.svg" alt="Improve User Experience" className="w-12 h-12 mb-4" />
+          <h4 className="font-semibold text-gray-800 mb-2">Improve your user experience</h4>
         </div>
-
-        {/* Feature 3 */}
         <div className="flex flex-col items-center">
-          <span className="text-green-500 mb-4 text-3xl">🏆</span>
-          <h4 className="font-semibold text-gray-800 mb-2">
-            Optimize for better SEO rankings
-          </h4>
+          <img src="Silver Medal.svg" alt="SEO Optimization" className="w-12 h-12 mb-4" />
+          <h4 className="font-semibold text-gray-800 mb-2">Optimize for better SEO rankings</h4>
         </div>
       </div>
 
-      {/* CTA Button */}
       <Button className="!bg-gradient-to-r from-green-400 to-green-600 !text-white rounded-full px-8 py-3">
         Request Free Website Review
       </Button>
@@ -256,7 +227,7 @@ const ContactSection = () => (
       </p>
       <div className="space-x-4">
         <Button primary>Contact Us</Button>
-        <Button>Create Account</Button>
+        <Button>Subscribe for Insights</Button>
       </div>
     </div>
   </section>
@@ -269,8 +240,6 @@ const ContactSection = () => (
 const Footer = () => (
   <footer className="bg-white text-gray-600 py-16 px-6">
     <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
-      
-      {/* About */}
       <div className="md:col-span-2">
         <h3 className="text-xl font-bold text-gray-800 mb-4">SkyTrust</h3>
         <p className="mb-4">
@@ -283,7 +252,6 @@ const Footer = () => (
         </div>
       </div>
 
-      {/* Menu */}
       <div>
         <h4 className="font-semibold text-gray-800 mb-4">Menu</h4>
         <ul>
@@ -293,7 +261,6 @@ const Footer = () => (
         </ul>
       </div>
 
-      {/* Services */}
       <div>
         <h4 className="font-semibold text-gray-800 mb-4">Services</h4>
         <ul>
@@ -303,7 +270,6 @@ const Footer = () => (
         </ul>
       </div>
 
-      {/* Company */}
       <div>
         <h4 className="font-semibold text-gray-800 mb-4">Company</h4>
         <ul>
@@ -314,7 +280,6 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Bottom */}
     <div className="text-center text-gray-500 pt-8 mt-8 border-t border-gray-200">
       © 2025 SkyTrust. All Rights Reserved.
     </div>
