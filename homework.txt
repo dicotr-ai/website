@@ -1,0 +1,24 @@
+"use client"
+import { useEffect, useState } from "react"
+
+const About = ()=>{
+
+
+    const [name, setName] = useState<string>('bhavya')
+    const [time, setTime] = useState(0)
+    useEffect(()=>{
+        console.log("use effect called")
+
+        setName('Nikhil')
+        setInterval(()=>{
+
+            setTime(1)
+        },1000)
+        return()=>{
+            console.log("use effect 2")
+            // clearInterval(0)
+            setName("Raj")
+        }
+    },[time])
+    // useEffect(()=>{
+https://nextjs.org/learn/react-foundations/server-and-client-components
