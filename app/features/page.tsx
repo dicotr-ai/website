@@ -4,6 +4,7 @@ import {
   FaTwitter, 
   FaInstagram
 } from 'react-icons/fa';
+import Header from '@/app/components/pages/header';
 
 /* ===============================
    Reusable Button Component
@@ -32,24 +33,24 @@ const Button = ({
 /* ===============================
    Header Component
 ================================ */
-const Header = () => (
-  <header className="container mx-auto flex justify-between items-center py-4 px-6 bg-white">
-    <div className="flex items-center space-x-2">
-      <img src="/Category.svg" alt="WeThink Logo" className="h-8 w-auto" />
-      <div className="text-2xl font-bold text-gray-800">WeThink</div>
-    </div>
+// const Header = () => (
+//   <header className="container mx-auto flex justify-between items-center py-4 px-6 bg-white">
+//     <div className="flex items-center space-x-2">
+//       <img src="/Category.svg" alt="WeThink Logo" className="h-8 w-auto" />
+//       <div className="text-2xl font-bold text-gray-800">WeThink</div>
+//     </div>
 
-    <nav className="hidden md:flex items-center space-x-8">
-      <a href="#" className="text-gray-600 hover:text-green-500">Home</a>
-      <a href="#" className="text-gray-600 hover:text-green-500">About</a>
-      <a href="#" className="text-gray-600 hover:text-green-500">Services</a>
-    </nav>
+//     <nav className="hidden md:flex items-center space-x-8">
+//       <a href="#" className="text-gray-600 hover:text-green-500">Home</a>
+//       <a href="#" className="text-gray-600 hover:text-green-500">About</a>
+//       <a href="#" className="text-gray-600 hover:text-green-500">Services</a>
+//     </nav>
 
-    <Button className="rounded-full border-black !text-black px-6 py-2">
-      Contact Us
-    </Button>
-  </header>
-);
+//     <Button className="rounded-full border-black !text-black px-6 py-2">
+//       Contact Us
+//     </Button>
+//   </header>
+// );
 
 
 /* ===============================

@@ -4,7 +4,7 @@ import React from 'react';
 import { BsMegaphone, BsPencilSquare, BsSearch, BsCalendarWeek, BsPeople, BsClipboardData, BsLightbulb, BsFileEarmarkBarGraph, BsShare } from 'react-icons/bs';
 import Hero from '@/app/components/pages/hero'
 import Acknowlegde from '../components/pages/acknowlegde';
-import Mission_vision from '@/app/components/pages/mission_vision';
+import MissionAndVision from '@/app/components/pages/missionAndVision';
 import Footer from '@/app/components/pages/footer';
 import ConnectClient from '@/app/components/pages/connectClient';
 import Header from '@/app/components/pages/header'
@@ -30,7 +30,7 @@ const page = () => {
             <WhyToChooseUs/>
 
             {/* Our Mission & Vision Section */}
-            <Mission_vision/>
+            <MissionAndVision/>
 
             {/* Let's Do Great Work Together (CTA) Section */}
             <ConnectClient/>
