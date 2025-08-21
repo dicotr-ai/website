@@ -221,9 +221,9 @@ const NeedHelpSection = () => (
 const ContactSection = () => (
   <section className="bg-gray-800 text-white py-20 px-6">
     <div className="container mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-4">Let's Build Something Great</h2>
+      <h2 className="text-4xl font-bold mb-4">Let&apos;s Build Something Great</h2>
       <p className="max-w-xl mx-auto mb-8">
-        Whether you're launching or scaling, we're ready to support 
+        Whether you&apos;re launching or scaling, we&apos;re ready to support 
         your journey with a full-stack digital marketing framework.
       </p>
       <div className="space-x-4">
