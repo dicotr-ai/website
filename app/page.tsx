@@ -209,7 +209,7 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4">
             <h2 className="text-5xl font-semibold mb-7">How Can We Help You?</h2>
             <p className="text-xl leading-loose text-[#78847d] max-w-md mx-auto mb-24">
-              Let's do great work together
+              Let&apos;s do great work together
             </p>
             <div className="flex justify-center flex-wrap gap-24 mb-24">
                 <ProcessStep icon="greenpyramid.png" title="Update content my Website" isActive showLine />
