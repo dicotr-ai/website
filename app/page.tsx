@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import Footer from '@/app/components/pages/footer';
 import Header from '@/app/components/pages/header';
+import Blog from './components/pages/blog';
 
 // Define the types for the props of the components
 interface NavLinkProps {
@@ -223,6 +224,10 @@ const Home: NextPage = () => {
               </a>
         </div>
     </section>
+
+    {/* Blog Section */}
+    <Blog/>
+
 
     <Footer/>
 
