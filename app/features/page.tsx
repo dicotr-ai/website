@@ -1,10 +1,6 @@
 import type { NextPage } from 'next';
-import { 
-  FaFacebookF, 
-  FaTwitter, 
-  FaInstagram
-} from 'react-icons/fa';
 import Header from '@/app/components/pages/header';
+import Footer from '../components/pages/footer';
 
 /* ===============================
    Reusable Button Component
@@ -28,30 +24,6 @@ const Button = ({
     </button>
   );
 };
-
-
-/* ===============================
-   Header Component
-================================ */
-// const Header = () => (
-//   <header className="container mx-auto flex justify-between items-center py-4 px-6 bg-white">
-//     <div className="flex items-center space-x-2">
-//       <img src="/Category.svg" alt="WeThink Logo" className="h-8 w-auto" />
-//       <div className="text-2xl font-bold text-gray-800">WeThink</div>
-//     </div>
-
-//     <nav className="hidden md:flex items-center space-x-8">
-//       <a href="#" className="text-gray-600 hover:text-green-500">Home</a>
-//       <a href="#" className="text-gray-600 hover:text-green-500">About</a>
-//       <a href="#" className="text-gray-600 hover:text-green-500">Services</a>
-//     </nav>
-
-//     <Button className="rounded-full border-black !text-black px-6 py-2">
-//       Contact Us
-//     </Button>
-//   </header>
-// );
-
 
 /* ===============================
    Hero Section Component
@@ -87,14 +59,16 @@ const FeatureItem = ({
   icon,
   title,
   text,
-  reverse = false
+  reverse = false,
+  showImage = false
 }: { 
   icon: React.ReactNode, 
   title: string, 
   text: string, 
-  reverse?: boolean 
+  reverse?: boolean,
+  showImage?: boolean
 }) => (
-  <div className={`flex flex-col md:flex-row items-center justify-between my-16 gap-12 ${reverse ? 'md:flex-row-reverse' : ''}`}>
+  <div className={`flex flex-col md:flex-row items-center my-16 gap-12 ${reverse ? 'md:flex-row-reverse' : ''}`}>
     
     {/* Icon + Text */}
     <div className="md:w-2/5 text-center md:text-left">
@@ -108,10 +82,12 @@ const FeatureItem = ({
       </a>
     </div>
 
-    {/* Illustration placeholder (can be replaced with actual images later) */}
-    <div className="md:w-2/5 flex justify-center">
-      <img src="https://via.placeholder.com/300x200" alt={title} className="rounded-xl shadow-md" />
-    </div>
+    {/* Show image only if allowed */}
+    {showImage && (
+      <div className="md:w-2/5 flex justify-center">
+        <img src="Group.svg" alt={title} className="rounded-xl shadow-md" />
+      </div>
+    )}
   </div>
 );
 
@@ -150,11 +126,12 @@ const ContentSection = () => {
           key={index} 
           {...feature} 
           reverse={index % 2 !== 0}   // 👈 Alternates layout
+          showImage={index === 0 || index === 2} // 👈 Only show image for 0 & 2
         />
       ))}
     </section>
   );
-};
+}
 
 
 /* ===============================
@@ -238,54 +215,7 @@ const ContactSection = () => (
 /* ===============================
    Footer Component
 ================================ */
-const Footer = () => (
-  <footer className="bg-white text-gray-600 py-16 px-6">
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
-      <div className="md:col-span-2">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">SkyTrust</h3>
-        <p className="mb-4">
-          A team of strategists, designers, and developers that love building digital products.
-        </p>
-        <div className="flex space-x-4">
-          <a href="#" className="hover:text-green-500"><FaFacebookF /></a>
-          <a href="#" className="hover:text-green-500"><FaTwitter /></a>
-          <a href="#" className="hover:text-green-500"><FaInstagram /></a>
-        </div>
-      </div>
 
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-4">Menu</h4>
-        <ul>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Home</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">About</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Services</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-4">Services</h4>
-        <ul>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Content Strategy</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Content Development</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Content Creation</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 className="font-semibold text-gray-800 mb-4">Company</h4>
-        <ul>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Contact Us</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Careers</a></li>
-          <li className="mb-2"><a href="#" className="hover:text-green-500">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div className="text-center text-gray-500 pt-8 mt-8 border-t border-gray-200">
-      © 2025 SkyTrust. All Rights Reserved.
-    </div>
-  </footer>
-);
 
 
 /* ===============================
