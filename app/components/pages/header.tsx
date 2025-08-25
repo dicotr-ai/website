@@ -24,7 +24,7 @@ const Header = () => {
           <>
             {/* Dark Header Content (no changes here) */}
             <Link href="/" className="flex items-center gap-2">
-              <img src="/logo.svg" alt="Logo" className="w-8 h-8" />
+              <img src="/logo.png" alt="Logo" className="w-20 h-20" />
               <span className="text-2xl font-semibold text-white">DiCoTr</span>
             </Link>
             <nav className="hidden lg:block">
