@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { BsMegaphone, BsPencilSquare, BsSearch, BsCalendarWeek, BsPeople, BsClipboardData, BsLightbulb, BsFileEarmarkBarGraph, BsShare } from 'react-icons/bs';
 import Hero from '@/app/components/pages/hero'
 import Acknowlegde from '../components/pages/acknowlegde';
 import MissionAndVision from '@/app/components/pages/missionAndVision';
