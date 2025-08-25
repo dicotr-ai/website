@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Footer from '@/app/components/pages/footer';
 import Header from '@/app/components/pages/header';
 import Blog from './components/pages/blog';
+import { FlipWords } from './components/ui/flip-words';
 
 // Define the types for the props of the components
 interface NavLinkProps {
@@ -94,9 +95,9 @@ const Home: NextPage = () => {
       className="text-8xl font-semibold leading-tight relative inline-block"
       style={{ fontFamily: 'Rubik, sans-serif' }}
     >
-      Digital{" "}
+     
       <span className="relative">
-        Marketing
+         <FlipWords words={['Digital Marketing','Digital Engineering']}/>{" "}
         {/* Squiggly underline */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -227,6 +228,7 @@ const Home: NextPage = () => {
 
     {/* Blog Section */}
     <Blog/>
+
 
 
     <Footer/>
