@@ -6,6 +6,8 @@ import Footer from '@/app/components/pages/footer';
 import Header from '@/app/components/pages/header';
 import Blog from './components/pages/blog';
 import { FlipWords } from './components/ui/flip-words';
+import Image from "next/image";
+
 
 // Define the types for the props of the components
 interface NavLinkProps {
@@ -56,6 +58,17 @@ const ProcessStep: React.FC<ProcessStepProps> = ({ icon, title, isActive, showLi
         <h4 className={`text-xl leading-relaxed text-[#253d32] ${isActive ? 'font-semibold' : 'font-normal'}`}>{title}</h4>
     </div>
 );
+
+// button component
+const PrimaryButton: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className }) => (
+  <a
+    href="#"
+    className={`btn btn-primary bg-gradient-primary text-[#12211a] shadow-button-primary hover:translate-y-[-3px] hover:shadow-lg transition-all ease-in-out ${className}`}
+  >
+    {children}
+  </a>
+);
+//image
 
 
 
@@ -228,6 +241,51 @@ const Home: NextPage = () => {
 
     {/* Blog Section */}
     <Blog/>
+
+   {/* Newsletter Section */}
+<section className="relative w-[1170px] h-[542px] mx-auto my-20 rounded-2xl">
+  {/* Background Image */}
+  <div 
+    className="absolute inset-0 bg-[url('/bg.png')] bg-cover bg-center"
+  ></div>
+
+  {/* Content */}
+  <div className="relative z-10 flex flex-col items-start justify-center h-full px-16 text-white">
+    <h2 className="text-2xl md:text-3xl font-semibold leading-relaxed max-w-[660px] mb-6">
+      Subscribe to get information, latest news and other interesting offers about
+    </h2>
+
+    {/* Logo */}
+    <div className="flex items-center gap-2.5 mb-10">
+      <img src="/logo.svg" alt="markethink icon" className="w-[42px] h-[42px]" />
+      <img src="/textlogo.svg" alt="markethink text logo" className="w-[208px] h-[40px]" />
+    </div>
+
+    {/* Form (input + button, same height) */}
+    <form className="flex items-center gap-4">
+      <input 
+        type="email" 
+        placeholder="Your email" 
+        className="w-[372px] h-[68px] rounded-full border-none bg-gradient-to-r from-white to-[#e2e2e2] px-6 text-lg text-[#14183e] placeholder-[#14183e]/80 focus:outline-none"
+      />
+      <button 
+        type="submit" 
+        className="h-[68px] px-10 rounded-full bg-gradient-to-r from-[#A3B938] to-[#98AA28] text-white font-semibold text-lg shadow-md"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
+
+  {/* Decorative grouped cubes image, overflowing */}
+  <img 
+    src="/boxes.svg" 
+    className="absolute bottom-[-50] right-[-200px] w-[400px]" 
+    alt="decorative cubes" 
+  />
+</section>
+
+
 
 
 
