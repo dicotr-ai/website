@@ -1,21 +1,20 @@
-'use client'; // 1. Add this directive at the top
+'use client'; 
 
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; // 2. Import usePathname instead
+import { usePathname } from 'next/navigation'; 
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  const pathname = usePathname(); // 3. Use the usePathname hook
+  const pathname = usePathname(); 
   const [darkHeader, setDarkHeader] = useState(false);
 
   useEffect(() => {
-    // 4. Check against the pathname variable
     if (pathname === "/") {
       setDarkHeader(true);
     } else {
       setDarkHeader(false);
     }
-  }, [pathname]); // 5. Update the dependency array
+  }, [pathname]); 
 
   return (
     <header className="absolute top-0 left-0 w-full py-10 z-10">
