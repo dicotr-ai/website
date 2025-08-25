@@ -4,6 +4,7 @@ import {
   FaTwitter, 
   FaInstagram
 } from 'react-icons/fa';
+import Header from '@/app/components/pages/header';
 
 /* ===============================
    Reusable Button Component
@@ -32,24 +33,24 @@ const Button = ({
 /* ===============================
    Header Component
 ================================ */
-const Header = () => (
-  <header className="container mx-auto flex justify-between items-center py-4 px-6 bg-white">
-    <div className="flex items-center space-x-2">
-      <img src="/Category.svg" alt="WeThink Logo" className="h-8 w-auto" />
-      <div className="text-2xl font-bold text-gray-800">WeThink</div>
-    </div>
+// const Header = () => (
+//   <header className="container mx-auto flex justify-between items-center py-4 px-6 bg-white">
+//     <div className="flex items-center space-x-2">
+//       <img src="/Category.svg" alt="WeThink Logo" className="h-8 w-auto" />
+//       <div className="text-2xl font-bold text-gray-800">WeThink</div>
+//     </div>
 
-    <nav className="hidden md:flex items-center space-x-8">
-      <a href="#" className="text-gray-600 hover:text-green-500">Home</a>
-      <a href="#" className="text-gray-600 hover:text-green-500">About</a>
-      <a href="#" className="text-gray-600 hover:text-green-500">Services</a>
-    </nav>
+//     <nav className="hidden md:flex items-center space-x-8">
+//       <a href="#" className="text-gray-600 hover:text-green-500">Home</a>
+//       <a href="#" className="text-gray-600 hover:text-green-500">About</a>
+//       <a href="#" className="text-gray-600 hover:text-green-500">Services</a>
+//     </nav>
 
-    <Button className="rounded-full border-black !text-black px-6 py-2">
-      Contact Us
-    </Button>
-  </header>
-);
+//     <Button className="rounded-full border-black !text-black px-6 py-2">
+//       Contact Us
+//     </Button>
+//   </header>
+// );
 
 
 /* ===============================
@@ -220,9 +221,9 @@ const NeedHelpSection = () => (
 const ContactSection = () => (
   <section className="bg-gray-800 text-white py-20 px-6">
     <div className="container mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-4">Let's Build Something Great</h2>
+      <h2 className="text-4xl font-bold mb-4">Let&apos;s Build Something Great</h2>
       <p className="max-w-xl mx-auto mb-8">
-        Whether you're launching or scaling, we're ready to support 
+        Whether you&apos;re launching or scaling, we&apos;re ready to support 
         your journey with a full-stack digital marketing framework.
       </p>
       <div className="space-x-4">

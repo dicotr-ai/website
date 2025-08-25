@@ -1,7 +1,7 @@
 const ourWork = () =>{
     const ServiceItem = ({ image, title, description }: { image: string, title: string, description?: string }) => (
     <div className="flex flex-col items-center text-center p-4">
-        <img src={image} alt={title} className="w-16 h-16 mb-4 object-contain" />
+        <img src={image} alt={title} className="w-12 h-12 mb-4 object-contain" />
         <h3 className="font-semibold text-gray-800">{title}</h3>
         {description && <p className="text-sm text-gray-500 mt-1">{description}</p>}
     </div>

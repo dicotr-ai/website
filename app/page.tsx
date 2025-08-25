@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import Footer from '@/app/components/pages/footer';
 import Header from '@/app/components/pages/header';
+import { FlipWords } from './components/ui/flip-words';
 
 // Define the types for the props of the components
 interface NavLinkProps {
@@ -93,9 +94,9 @@ const Home: NextPage = () => {
       className="text-8xl font-semibold leading-tight relative inline-block"
       style={{ fontFamily: 'Rubik, sans-serif' }}
     >
-      Digital{" "}
+     
       <span className="relative">
-        Marketing
+         <FlipWords words={['Digital Marketing','Digital Engineering']}/>{" "}
         {/* Squiggly underline */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +210,7 @@ const Home: NextPage = () => {
         <div className="container mx-auto px-4">
             <h2 className="text-5xl font-semibold mb-7">How Can We Help You?</h2>
             <p className="text-xl leading-loose text-[#78847d] max-w-md mx-auto mb-24">
-              Let's do great work together
+              Let&apos;s do great work together
             </p>
             <div className="flex justify-center flex-wrap gap-24 mb-24">
                 <ProcessStep icon="greenpyramid.png" title="Update content my Website" isActive showLine />
