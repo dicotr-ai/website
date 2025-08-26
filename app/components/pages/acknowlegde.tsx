@@ -3,7 +3,7 @@ const Acknowlegde = () => {
         <>
             <section className="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
                  <div>
-                    <img src="./acknowledgeSection.svg" alt="Team working at a desk" className="w-full h-auto" />
+                    <img src="./Acknowledge-section.svg" alt="Team working at a desk" className="w-full h-auto" />
                 </div>
                 <div>
                     <h2   style={{
