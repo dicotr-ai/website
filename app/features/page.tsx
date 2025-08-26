@@ -68,15 +68,15 @@ const FeatureItem = ({
   reverse?: boolean,
   showImage?: boolean
 }) => (
-  <div className={`flex flex-col md:flex-row items-center my-16 gap-12 ${reverse ? 'md:flex-row-reverse' : ''}`}>
+  <div className={`flex flex-col md:flex-row my-16 ${reverse ? 'md:flex-row-reverse' : ''}`}>
     
     {/* Icon + Text */}
     <div className="md:w-2/5 text-center md:text-left">
       <div className="inline-flex items-center justify-center w-16 h-16 mb-4 text-purple-500 bg-purple-100 rounded-full">
         {icon}
       </div>
-      <h3 className="text-2xl font-bold text-gray-800 mb-2">{title}</h3>
-      <p className="text-gray-600 mb-4">{text}</p>
+      <h3 className="text-[42px] font-bold text-gray-800 mb-2">{title}</h3>
+      <p className="text-gray-600 text-[22px] mb-4">{text}</p>
       <a href="#" className="font-semibold text-green-500 hover:underline">
         See More &rarr;
       </a>
@@ -84,8 +84,8 @@ const FeatureItem = ({
 
     {/* Show image only if allowed */}
     {showImage && (
-      <div className="md:w-2/5 flex justify-center">
-        <img src="Group.svg" alt={title} className="rounded-xl shadow-md" />
+      <div className="hidden md:flex justify-center relative top-18 ">
+        <img src="Group.svg" alt={title} className="rounded-xl" />
       </div>
     )}
   </div>
@@ -120,7 +120,7 @@ const ContentSection = () => {
   ];
 
   return (
-    <section className="container mx-auto py-16 px-6">
+    <section className="container mx-auto py-16 px-6 ">
       {features.map((feature, index) => (
         <FeatureItem 
           key={index} 
