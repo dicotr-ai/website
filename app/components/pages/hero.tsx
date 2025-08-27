@@ -1,5 +1,6 @@
 import { Rubik } from 'next/font/google';
 import Image from "next/image";
+import Button from "@/app/components/pages/button"
 
 const rubik = Rubik({
   subsets: ['latin'],
@@ -19,14 +20,7 @@ const Hero = () => {
             At WeThink, we combine strategy, creativity, and analytics <br /> 
             to help businesses thrive in the digital world.
           </p>
-          <div className="relative mt-12 w-[293px] h-[78px]">
-            <div className="absolute w-[201.36px] h-16 opacity-20 bg-lime-300 blur-md" />
-            <button className="relative w-full h-full rounded-full bg-gradient-to-tr from-[#98AA28] to-[#D6FF7E] shadow-lg border border-white">
-              <span className="text-white text-lg font-rubik font-semibold tracking-wider">
-                Work With Us
-              </span>
-            </button>
-          </div>
+            <Button label='Work with Us'/>
         </div>
       </div>
 
