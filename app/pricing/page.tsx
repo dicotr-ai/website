@@ -254,112 +254,9 @@
 // export default Pricing;
 
 import Link from "next/link";
-const Footer = () => {
-    return (
+import Header from "@/app/components/pages/header";
+import Footer from "@/app/components/pages/footer";
 
-
-        <>
-            {/* Footer Section */}
-            <footer className="bg-[#fff] text-[#78847D] pt-24 pb-12">
-                <div className="container mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
-                    <div className="lg:col-span-2">
-                        <a href="#" className="flex items-center gap-2 mb-6">
-                            <img src="darklogo.png" alt="Logo" className="w-8 h-8" />
-                            <span className="text-2xl text-[#253D32] font-semibold">markethink</span>
-                        </a>
-                        <p className="text-lg leading-relaxed opacity-70 mb-8 max-w-sm">
-                            Marketing is a company that focus on developing company’s strategy for increase digital marketing
-                        </p>
-                        <div className="flex gap-4">
-                            <a href="#"><img src="facebook.svg" alt="Facebook" /></a>
-                            <a href="#"><img src="twitter.svg" alt="Twitter" /></a>
-                            <a href="#"><img src="insta.svg" alt="Instagram" /></a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 className="text-xl text-[#253D32] font-bold mb-6">Menu</h4>
-                        <ul className="space-y-4">
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Home</a></li>
-                            <li><a href="#services" className="opacity-70 hover:opacity-100">Features</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Pricing About</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-xl text-[#253D32] font-bold mb-6">Services</h4>
-                        <ul className="space-y-4">
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Content Strategy</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Content Development</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Content Creation</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Content Optimization</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-xl text-[#253D32] font-bold mb-6">Company</h4>
-                        <ul className="space-y-4">
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Site Map</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Terms of Use</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Privacy Notice</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Cookies</a></li>
-                            <li><a href="#" className="opacity-70 hover:opacity-100">Modern Slavery</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div className="container mx-auto px-4">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-[1px] text-gray-300"
-                        viewBox="0 0 100 1"
-                        preserveAspectRatio="none"
-                    >
-                        <line x1="0" y1="0.5" x2="100" y2="0.5" stroke="currentColor" strokeWidth="1" />
-                    </svg>
-                </div>
-
-
-
-                <div className="container mx-auto px-4 text-center border-t border-white/20 pt-8">
-                    <p className="opacity-70">
-                        © Copyright 2023 All Rights Reserved.
-                    </p>
-                </div>
-            </footer>
-        </>
-    )
-
-}
-const Header = () => (
-    <header className=" top-0 left-0 w-full py-10 z-10">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-            <Link href="#" className="flex items-center gap-2">
-                <img src="/darklogo.png" alt="Logo" className="w-8 h-8" />
-                <span className="text-2xl font-semibold">WeThink</span>
-            </Link>
-
-            <nav className="hidden lg:block">
-                <ul className="flex gap-12">
-                    <Link href="#services">Features</Link>
-                    <Link href="#pricing">Pricing</Link>
-                    <Link href="#about">About</Link>
-                </ul>
-            </nav>
-
-            <Link
-                href="#contact"
-                className="hidden lg:inline-block text-base font-medium px-7 py-4 border border-[#000000] w-[140px] h-[55px] top-[40px] left-[1165px] rounded-[116px] "
-            >
-                Contact Us
-            </Link>
-
-            <button className="lg:hidden bg-none border-none text-white text-3xl cursor-pointer">
-                ☰
-            </button>
-        </div>
-    </header>
-
-);
 type plan = {
     id:string,
     name: string,
@@ -401,10 +298,8 @@ const Pricing = () => {
     ]
     return (
         <>
+            <Header />
             <div className=" w-[1440px]  relative items-center m-auto flex flex-col h-[656px] bg-[#FFFFFF]">
-                <div className="w-[1170px] h-[55px] top-[40px] left-[135px]  ">
-                    <Header />
-                </div>
                 <div className="w-[1365px] h-[439.25px] text-center  top-[144px] left-[119px]">
                     <div className="w-[1016px]  absolute  h-[154px] top-[201px] left-[212px] font-rubik font-semibold text-[64px] leading-[120%]  ">
 

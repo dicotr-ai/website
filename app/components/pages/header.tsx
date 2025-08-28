@@ -75,7 +75,7 @@ const Header = ({ config, className }: HeaderProps) => {
           <ul className="flex gap-10">
             {(config?.links || [
               { href: "/features", label: "Features" },
-              { href: "#pricing", label: "Pricing" },
+              { href: "/pricing", label: "Pricing" },
               { href: "/about", label: "About" },
             ]).map((link: any) => (
               <li key={link.href}>
