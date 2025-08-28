@@ -174,14 +174,14 @@ const Home:NextPage = async () => {
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-16">
  
             {strategicSectionData.strategies.map((item)=>{
-              return < >
+              return <div key={item.title} >
                 <ServiceCard
-                key={item.title}
+                
                 icon={item.image ?? ''}
                 title={item.title}
                 description={item.description}
                 />
-              </>
+              </div>
             })}
           </div>
         </div>
