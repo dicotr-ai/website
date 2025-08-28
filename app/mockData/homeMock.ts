@@ -10,29 +10,29 @@ export const homePageMock: HomePageDataType = {
 const startegies: ICard[] = [
     {
         title: 'Strategy & Consultaion',
-        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
+        description: 'We provide expert strategy and consultation, guiding businesses with tailored solutions for growth, efficiency, and sustainable success.',
         image: 'bluebox.svg'
     },
     {
         title: 'Digital Engineering',
-        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
+        description: 'We help businesses embrace digital integration, streamlining processes and technologies to drive innovation, efficiency, and sustainable growth.',
         image: 'pyramid.svg'
     },
     {
         title: 'Generative Ai',
-        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
+        description: 'We empower businesses with generative AI solutions, enhancing creativity, automation, and decision-making for sustainable growth.',
         image: 'bluecircle.svg'
     },
     {
         title: 'Digital Marketing',
-        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
+        description: 'We craft impactful digital marketing strategies to boost brand visibility, engage audiences, and drive measurable business growth.',
         image: 'cup.svg'
     },
 ]
 
 export const strategicSection: StrategicSectionType = {
     title: 'Innvoation with Execution',
-    description: 'At DiCoTr, we become the cotter - the small but essential force that locks innovation & creating real movement and measurable growth',
+    description: 'At DiCoTr, we become the cotter - the small but essential force that locks innovation with creating real movement and measurable growth',
     link: '/about',
     strategies: startegies
 
