@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 
-//  Variants header styles kae liye
+
 const headerVariants = cva(
   "fixed top-0 left-0 w-full py-6 z-50 transition-colors duration-300",
   {
@@ -21,13 +22,17 @@ const headerVariants = cva(
   }
 );
 
-const Header = ({ config }: { config?: any }) => {
+interface HeaderProps {
+  config?: any;
+  className?: string; 
+}
+
+const Header = ({ config, className }: HeaderProps) => {
   const pathname = usePathname();
   const [darkHeader, setDarkHeader] = useState(pathname === "/");
   const [scrolled, setScrolled] = useState(
-  typeof window !== "undefined" ? window.scrollY > 10 : false
-);
-
+    typeof window !== "undefined" ? window.scrollY > 10 : false
+  );
 
   useEffect(() => {
     setDarkHeader(pathname === "/");
@@ -41,17 +46,22 @@ const Header = ({ config }: { config?: any }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Transparent only on homepage top
   const isTransparent = darkHeader && !scrolled;
 
   return (
-    <header suppressHydrationWarning className={headerVariants({ dark: isTransparent })}>
+    <header
+      suppressHydrationWarning
+      className={cn(
+        headerVariants({ dark: isTransparent }),
+        className
+      )}
+    >
       <div className="container mx-auto px-4 flex justify-between items-center">
         
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2">
           <img
-            src={isTransparent ? "/logo.png" : "/darklogo.png"}
+            src={isTransparent ? "/logo.svg" : "/darklogo.png"}
             alt="Logo"
             className="h-8 w-auto"
           />
