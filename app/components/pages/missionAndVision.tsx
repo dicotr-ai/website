@@ -1,14 +1,16 @@
-const mission_vision = () =>{
+const missionAndVision = () =>{
     return(
         <>
-            <section className="container mx-auto px-6 py-20 text-center">
-                 <h2 className="text-3xl font-bold text-gray-800">Our Mission & Vision</h2>
-                 <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-                    With our network of industry influencers, we help promote your brand.
-                 </p>
-            </section>
+            <div className="w-full h-full relative overflow-hidden">
+                <div className="absolute left-[135px] top-[50px] text-[#253D32] text-[42px] font-rubik font-semibold">
+                    Our Mission & Vision
+                </div>
+                <div className="absolute left-[135px] top-[158px] w-[606px] text-[#78847D] text-[22px] font-rubik font-normal leading-[40px]">
+                    Using our network of industry influencers, we help promote your content
+                </div>
+            </div>
         </>
     );
 }
 
-export default mission_vision;
+export default missionAndVision;
