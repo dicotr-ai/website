@@ -1,115 +1,82 @@
-'use client';
+'use client'; // 1. Add this directive at the top
 
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation'; // 2. Import usePathname instead
 import { useEffect, useState } from "react";
-import { cva } from "class-variance-authority";
-import { cn } from "@/lib/utils";
 
-
-const headerVariants = cva(
-  "fixed top-0 left-0 w-full py-6 z-50 transition-colors duration-300",
-  {
-    variants: {
-      dark: {
-        true: "bg-transparent text-white",
-        false: "bg-white shadow-md text-gray-800",
-      },
-    },
-    defaultVariants: {
-      dark: false,
-    },
-  }
-);
-
-interface HeaderProps {
-  config?: any;
-  className?: string; 
-}
-
-const Header = ({ config, className }: HeaderProps) => {
-  const pathname = usePathname();
-  const [darkHeader, setDarkHeader] = useState(pathname === "/");
-  const [scrolled, setScrolled] = useState(
-    typeof window !== "undefined" ? window.scrollY > 10 : false
-  );
+const Header = () => {
+  const pathname = usePathname(); // 3. Use the usePathname hook
+  const [darkHeader, setDarkHeader] = useState(false);
 
   useEffect(() => {
-    setDarkHeader(pathname === "/");
-  }, [pathname]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const isTransparent = darkHeader && !scrolled;
+    // 4. Check against the pathname variable
+    if (pathname === "/") {
+      setDarkHeader(true);
+    } else {
+      setDarkHeader(false);
+    }
+  }, [pathname]); // 5. Update the dependency array
 
   return (
-    <header
-      suppressHydrationWarning
-      className={cn(
-        headerVariants({ dark: isTransparent }),
-        className
-      )}
-    >
+    <header className="absolute top-0 left-0 w-full py-10 z-10">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-2">
-          <img
-            src={isTransparent ? "/logo.svg" : "/darklogo.png"}
-            alt="Logo"
-            className="h-8 w-auto"
-          />
-          <span className="text-2xl font-semibold tracking-tight">
-            {config?.brandName || "DiCoTr"}
-          </span>
-        </Link>
+        {darkHeader ? (
+          <>
+            {/* Dark Header Content (no changes here) */}
+            <Link href="/" className="flex items-center gap-2">
+              <img src="/logo.png" alt="Logo" className="w-20 h-20" />
+              <span className="text-2xl font-semibold text-white">DiCoTr</span>
+            </Link>
+            <nav className="hidden lg:block">
+              <ul className="flex gap-12">
+                <li>
+                  <Link href="/features" className="text-base text-white opacity-90 hover:opacity-100 hover:text-green-500">Features</Link>
+                </li>
+                <li>
+                  <Link href="#pricing" className="text-base text-white opacity-90 hover:opacity-100 hover:text-green-500">Pricing</Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-base text-white opacity-90 hover:opacity-100 hover:text-green-500">About</Link>
+                </li>
+              </ul>
+            </nav>
+            <Link
+              href="#contact"
+              className="hidden lg:inline-block text-base font-medium px-7 py-4 bg-white/10 border border-white/40 text-white rounded-full hover:bg-white/20 transition-colors"
+            >
+              Contact Us
+            </Link>
+          </>
+        ) : (
+          <>
+            {/* Light Header Content (no changes here) */}
+            <Link href="/" className="flex items-center gap-2">
+              <img src="/darklogo.png" alt="Logo" className="h-8 w-auto" />
+              <span className="text-2xl font-bold text-gray-800">DiCoTr</span>
+            </Link>
+            <nav className="hidden lg:block">
+              <ul className="flex gap-12">
+                <li>
+                  <Link href="/features" className="text-gray-600 hover:text-green-500">Features</Link>
+                </li>
+                <li>
+                  <Link href="#pricing" className="text-gray-600 hover:text-green-500">Pricing</Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-gray-600 hover:text-green-500">About</Link>
+                </li>
+              </ul>
+            </nav>
+            <Link
+              href="#contact"
+              className="hidden lg:inline-block text-base font-medium px-7 py-4 text-gray-800 bg-gray-100 border border-gray-200 rounded-full hover:bg-gray-200 transition-colors"
+            >
+              Contact Us
+            </Link>
+          </>
+        )}
 
-        {/* Navigation */}
-        <nav className="hidden lg:block">
-          <ul className="flex gap-10">
-            {(config?.links || [
-              { href: "/features", label: "Features" },
-              { href: "/pricing", label: "Pricing" },
-              { href: "/about", label: "About" },
-            ]).map((link: any) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={isTransparent 
-                    ? "text-white/90 hover:text-green-400" 
-                    : "text-gray-600 hover:text-green-500"
-                  }
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* CTA */}
-        <Link
-          href={config?.cta?.href || "#contact"}
-          className={
-            isTransparent
-              ? "hidden lg:inline-block text-base font-medium px-6 py-3 rounded-full bg-white/10 border border-white/40 text-white hover:bg-white/20"
-              : "hidden lg:inline-block text-base font-medium px-6 py-3 rounded-full text-gray-800 bg-gray-100 border border-gray-200 hover:bg-gray-200"
-          }
-        >
-          {config?.cta?.label || "Contact Us"}
-        </Link>
-
-        {/* Mobile menu */}
-        <button
-          className={isTransparent ? "lg:hidden text-3xl text-white" : "lg:hidden text-3xl text-gray-800"}
-          aria-label="Open menu"
-        >
+        <button className="lg:hidden bg-none border-none text-white text-3xl cursor-pointer">
           ☰
         </button>
       </div>
