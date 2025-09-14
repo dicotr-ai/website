@@ -258,6 +258,7 @@ import Header from "@/app/components/pages/header";
 import Footer from "@/app/components/pages/footer";
 import Button from "../components/pages/button";
 import { useState } from "react";
+import FAQAccordion from "@/app/components/pages/Pricingcomponent/Faq";
 type plan = {
   id: string,
   name: string,
@@ -300,8 +301,9 @@ const Pricing = () => {
   const [open, setOpen] = useState(true);
   return (
     <>
-      <Header />
-      <div className=" w-[1440px]  relative items-center m-auto flex flex-col h-[656px] bg-[#FFFFFF]">
+      <div className="w-full overflow-x-hidden">
+        <Header />
+      <div className=" w-full  relative items-center m-auto flex flex-col h-[656px] bg-[#FFFFFF]">
         <div className="w-[1365px] h-[439.25px] text-center  top-[144px] left-[119px]">
           <div className="w-[1016px]  absolute  h-[154px] top-[201px] left-[212px] font-rubik font-semibold text-[64px] leading-[120%]  ">
 
@@ -424,7 +426,7 @@ const Pricing = () => {
       </div>
 
       {/*custom banner*/}
-      <div className="w-[1440px] relative   mx-auto flex  h-[379px]  bg-[#EEFFD280]">
+      <div className="w-full relative   mx-auto flex  h-[379px]  bg-[#EEFFD280]">
         <div className="w-full h-full flex flex-col">
           {/* //banner */}
           <div className="w-[442px] absolute h-[50px] top-[50px] left-[135px] ">
@@ -453,37 +455,20 @@ const Pricing = () => {
       </div>
 
       {/* faq */}
-      <div className="w-[1440px]  h-[758px]  top-[1878px] bg-[#FFFFFF] m-auto">
-        <p className="font-rubik p-9 font-semibold top-[50px] left-[432px] text-[42px] leading-[100%]  text-center ">
-          Frequently Asked Questions
-        </p>
-        {/* <div className="w-[1180px] h-[568px] top-[140px] left-[130px] m-auto gap-[20px] bg-red-100">
-          <div className="flex justify-evenly w-[951px] h-[99px] m-auto bg-green-300">
-            <div>
-              <img src="/Number.png" alt="" />
-            </div>
-            <div className="flex flex-col">
-              <h1>
-                Hello
-              </h1>
-              <p>
-                How are you today?
-              </p>
-            </div>
-            <div>
-              <button>cross</button>
-            </div>
-          </div>
-        </div> */}
-       
+     <div className="w-full py-12  h-[558px] bg-[#FFFFFF] top-[1878px] ">
+  <p className="font-rubik font-semibold text-[32px] md:text-[42px] leading-tight text-center mb-10">
+    Frequently Asked Questions
+  </p>
 
-   
+  <div className="w-[1180px]   h-[568px] mx-auto px-4 flex flex-col gap-[20px]">
+    <FAQAccordion />
+  </div>
+</div>
 
-      </div>
 
 
       {/* //Digital presence */}
-      <div className="w-[1440px] relative   mx-auto flex  h-[448px]  left-[-2px]  bg-[#FFFFFF]">
+      <div className="w-[1440px] relative    mx-auto flex  h-[448px]  left-[-2px]  bg-[#FFFFFF]">
         {/* //image */}
         <div className="w-[427px] h-[358px] absolute left-[133px] top-[45px] ">
           <img src="/table.png" alt="" />
@@ -501,9 +486,9 @@ const Pricing = () => {
               Join dozens of clients who trust us to create and optimize their content marketing.
             </p>
           </div>
-          <div className=" relative top-[250px] left-[771px] ">
-            <Button label="Request Custom Quote" />
-
+          <div className=" relative top-[250px] flex gap-2 left-[771px] ">
+            <Button label="Get Started" />
+           <Button label=" Custom Sales" />
 
 
           </div>
@@ -513,8 +498,53 @@ const Pricing = () => {
       </div>
 
 
+<div className="relative w-[1170px] h-[542px] mx-auto">
+  {/* Background image */}
+  <img
+    src="/bgpricing.png"
+    className="w-full h-full object-cover"
+    alt="Background"
+  />
 
-      <Footer />
+  {/* Overlay images */}
+  <img
+    src="/Group 581.png"
+    className="absolute top-0 left-0 z-10"
+    alt="Overlay 1"
+  />
+  <img
+    src="/Group 294.png"
+    className="absolute -bottom-7  left-[916.55px] z-20"
+    alt="Overlay 2"
+  />
+  <div className="text absolute w-[659px]  p-2 text-start h-[110px] left-[165px] z-20 top-24">
+    <p className="font-rubik font-semibold text-[32px] tracking-1p leading-[55px]  text-white ">
+      Subscribe to get information, latest <br /> news and other interesting offers about
+    </p>
+    <img src="/Group 618.png" className="mt-5" alt="" />
+    <div className="input">
+  <input
+    type="text"
+    placeholder="Your email"
+    className="w-[372px] h-[68px] bg-white rounded-[192px] text-start pl-4 border mt-20 
+               placeholder:text-black placeholder:font-medium placeholder:tracking-[0.02em] 
+               placeholder:text-[18px]"
+  />
+  <div className="  p-2  left-[406px] z-20 top-48 absolute">
+    <Button label="Subscribe" />
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+<div className="footer max-w-[1170px] mx-auto">
+  <Footer/>
+  
+</div>
+
+      </div>
     </>
 
   )
