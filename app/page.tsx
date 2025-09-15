@@ -3,7 +3,7 @@ import Footer from '@/app/components/pages/footer';
 import Header from '@/app/components/pages/header';
 import Blog from './components/pages/blog';
 import { FlipWords } from './components/ui/flip-words';
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 import { homePageMock, strategicSection } from './mockData/homeMock';
 
 
