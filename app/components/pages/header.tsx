@@ -23,6 +23,7 @@ const headerVariants = cva(
 );
 
 interface HeaderProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   config?: any;
   className?: string; 
 }
@@ -61,12 +62,12 @@ const Header = ({ config, className }: HeaderProps) => {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2">
           <img
-            src={isTransparent ? "/logo.svg" : "/darklogo.png"}
+            src={isTransparent ? "/light_logo.svg" : "/dark_logo.svg"}
             alt="Logo"
             className="h-8 w-auto"
           />
           <span className="text-2xl font-semibold tracking-tight">
-            {config?.brandName || "DiCoTr"}
+            {config?.brandName}
           </span>
         </Link>
 
@@ -77,6 +78,7 @@ const Header = ({ config, className }: HeaderProps) => {
               { href: "/features", label: "Features" },
               { href: "/pricing", label: "Pricing" },
               { href: "/about", label: "About" },
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ]).map((link: any) => (
               <li key={link.href}>
                 <Link

@@ -3,7 +3,7 @@ import Footer from '@/app/components/pages/footer';
 import Header from '@/app/components/pages/header';
 import Blog from './components/pages/blog';
 import { FlipWords } from './components/ui/flip-words';
-import Image from "next/image";
+import type { NextPage } from "next";
 import { homePageMock, strategicSection } from './mockData/homeMock';
 
 
@@ -246,8 +246,8 @@ const Home:NextPage = async () => {
 
     {/* Logo */}
     <div className="flex items-center gap-2.5 mb-10">
-      <img src="/logo.svg" alt="markethink icon" className="w-[42px] h-[42px]" />
-      <img src="/textlogo.svg" alt="markethink text logo" className="w-[208px] h-[40px]" />
+      {/* <img src="/light_logo.svg" alt="markethink icon" className="w-[42px] h-[42px]" /> */}
+      <img src="/light_logo.svg" alt="markethink text logo" className="w-[228px] h-[50px]" />
     </div>
 
     {/* Form (input + button, same height) */}
