@@ -8,7 +8,7 @@ const footer = () =>{
         <div className="container mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
             <div className="lg:col-span-2">
                 <a href="#" className="flex items-center gap-2 mb-6">
-                    <img src="darklogo.png" alt="Logo" className="w-8 h-8" />
+                    <img src="logo_olive.png" alt="Logo" className="w-8 h-8" />
                     <span className="text-2xl text-[#253D32] font-semibold">DiCoTr</span>
                 </a>
                 <p className="text-lg leading-relaxed opacity-70 mb-8 max-w-sm">
